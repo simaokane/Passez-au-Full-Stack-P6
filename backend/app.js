@@ -2,6 +2,16 @@ const express = require('express');
 
 const app = express();
 
+const mongoose = require('mongoose');
+
+mongoose
+  .connect(
+    'mongodb+srv://simaokane:LbQS5ls3ZfBIFrDu@cluster0.v6wmdi8.mongodb.net/?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
+
 app.use(express.json());
 
 app.use((req, res, next) => {
